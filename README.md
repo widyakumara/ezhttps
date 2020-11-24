@@ -8,25 +8,25 @@ Easy way to wrap your (legacy) web service on https for local development
 ## Installation
 * Install requirements above
 
-* Generate root local CA  
+* Generate root local CA
   `mkcert -install`
 
-* Clone this repo  
+* Clone this repo
   `git clone git@github.com:widyakumara/ezhttps.git`
 
 * Get your the **local IP address** of your working machine (there are several ways to do this, Google is your friend)
 
-* Generate certificate with your IP  
+* Generate certificate with your IP
   `mkcert -cert-file ./confs/<YOUR_IP>.crt -key-file ./confs/<YOUR_IP>.key <YOUR_IP>`
 
 * Copy (or rename) `env.sample` to `.env`
 
-* In `.env`, replace `WEB_HOST` with your IP, and `SVC_PORT` with your web service port  
-  
-* Run the container  
+* In `.env`, replace `WEB_HOST` with your IP, and `SVC_PORT` with your web service port
+
+* Run the container
  `docker-compose up`
 
-* Open `https://<YOUR_API>/` in browser
+* Open `https://<YOUR_IP>/` in browser
 
 ## Caveat
 * This setup only support web service running on 127.0.0.1. For now. Maybe.
