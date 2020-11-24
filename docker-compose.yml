@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  nginx:
+    container_name: ezhttps
+    image: nginx:alpine
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - ./confs/nginx.conf:/etc/nginx/templates/default.conf.template
+      - ./confs:/confs
+      - ./logs:/logs
+    environment:
+      WEB_HOST: ${WEB_HOST}
+      SVC_PORT: ${SVC_PORT}
